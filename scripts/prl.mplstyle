@@ -1,0 +1,14 @@
+xtick.labelsize: 8
+ytick.labelsize: 8
+axes.labelsize: 8
+font.family: serif
+figure.figsize: 3.375, 2.086
+lines.linewidth: 1
+savefig.dpi: 300
+text.usetex: True
+xtick.minor.visible: True
+ytick.minor.visible: True
+# axes.prop_cycle: cycler('color', ["#1b9e77", '#d95f02', '#7570b3'])
+legend.fontsize: 6
+legend.frameon: False
+axes.titlesize: 8
