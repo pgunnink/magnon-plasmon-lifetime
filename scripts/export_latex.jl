@@ -1,6 +1,0 @@
-includet("MnF2_3D_def.jl")
-includet("cuprate_def.jl")
-includet("plasmons.jl")
-export_params_MnF()
-export_params_Cuprate()
-export_params_plasmons()
