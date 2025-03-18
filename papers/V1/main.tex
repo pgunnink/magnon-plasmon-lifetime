@@ -68,10 +68,9 @@
 	
 	
 	
-	These previous works demonstrate the potential for magnon-plasmon coupling, but the spin-orbit coupling and magnetic dipolar coupling used in these works are typically small \cite{costaStronglyCoupledMagnonplasmon2023,yuanStrongTunableCoupling2024,yuanBreakingSurfacePlasmonExcitation2024,dyrdalMagnonplasmonHybridizationMediated2023,efimkinTopologicalSpinplasmaWaves2021}, or finite temperatures are required \cite{ghoshPlasmonmagnonInteractionsTwodimensional2023}. This leads to a small coupling rate, such that the splitting is comparable to the damping of the magnon mode, presenting considerable challenges for quantum applications. 
-	
-	In this work, we tackle the question of coupling plasmons to magnons without spin-orbit coupling and at zero temperature. We show that plasmons can also couple to the \emph{continuum} formed by antiferromagnetic (AFM) magnons. This coupling is enabled by the electric field of the plasmon that interacts with the microscopic electric polarization of the material and, in turn, with the magnetic order \cite{bolensTheoryElectronicMagnetoelectric2018}. 
-	Importantly, this plasmon-magnon continuum coupling does not require spin-orbit coupling, since in an AFM the magnon continuum is built from two magnons with opposite spin, such that spin is conserved. In addition, the coupling remains at zero temperature. We find that this naturally realizes a large coupling rate between magnons and plasmons, exceeding the typical magnon damping rate, thus opening the way for coherent transfer of quantum information \cite{kurizkiQuantumTechnologiesHybrid2015} between magnons and plasmons \cite{jiangIntegratingMagnonsQuantum2023, liHybridMagnonicsPhysics2020,yuanQuantumMagnonicsWhen2022}. 
+	These previous works demonstrate the potential for magnon-plasmon coupling, but the spin-orbit coupling and magnetic dipolar coupling necessary are typically small \cite{costaStronglyCoupledMagnonplasmon2023,yuanStrongTunableCoupling2024,yuanBreakingSurfacePlasmonExcitation2024,dyrdalMagnonplasmonHybridizationMediated2023,efimkinTopologicalSpinplasmaWaves2021}, or finite temperatures are required \cite{ghoshPlasmonmagnonInteractionsTwodimensional2023}, representing considerable challenges for quantum applications. Here, we tackle the question of coupling plasmons to magnons without spin-orbit coupling and at zero temperature. We show that plasmons can also couple to the \emph{continuum} formed by antiferromagnetic (AFM) magnons. This coupling is enabled by the electric field of the plasmon that interacts with the microscopic electric polarization of the material and, in turn, with the magnetic order \cite{bolensTheoryElectronicMagnetoelectric2018}. 
+	Importantly, this plasmon-magnon continuum coupling does not require spin-orbit coupling, since in an AFM the magnon continuum is built from two magnons with opposite spin, such that spin is conserved. In addition, the coupling remains at zero temperature.
+	We argue that this coupling can potentially realize a strong coupling between the plasmons and spin-zero two-magnon continuum, opening the way for coherent transfer of quantum information \cite{kurizkiQuantumTechnologiesHybrid2015} between magnons and plasmons \cite{jiangIntegratingMagnonsQuantum2023, liHybridMagnonicsPhysics2020,yuanQuantumMagnonicsWhen2022}. 
 	
 	\begin{figure}[b]
 		\centering
@@ -85,7 +84,7 @@
 	
 	In order for the magnetic excitations to couple to an electric field, the microscopic polarization operator in the antiferormagnet should be non-zero \cite{sergienkoFerroelectricityMagneticEPhase2006,bolensTheoryElectronicMagnetoelectric2018}. In absence of spin-orbit coupling, it can be shown from symmetry considerations that this is only possible if the center of a bond connecting two atoms is not a center of inversion. We stress that this does not imply a broken global inversion symmetry, nor the existence of ferroelectricity in the ground state. We choose here two systems to illustrate the magnon-plasmon coupling, as shown in \cref{fig:setup}: (i) a rutile-type antiferromagnet, where the anions naturally break the bond inversion symmetry, and (ii) a layered quasi two-dimensional antiferromagnet, where we break the bond inversion symmetry by placing non-magnetic ions in a checkerboard-like fashion.
 	
-
+	
 	
 	
 	This article is layout as follows. In \cref{sec:polarization} we first discuss the coupling between an electric field and spin excitations in an insulating magnetic material. Next, in \cref{sec:method} we present our main result: the coupling between magnons and plasmons, which gives rise to a plasmon self-energy. In \cref{sec:results} we show this plasmon self-energy and the resulting plasmon spectral function for the two systems we consider. We end with a conclusion and discussion in \cref{sec:conclusion}.
@@ -125,7 +124,7 @@
 	\end{equation}
 	where we have used $\hat{\bm E}(\bm r_j) \approx \hat{\bm E}(\bm r_i)$, since $\bm\pi_{ij}$ is only finite for two sites $i$ and $j$ so close to each other that the spatial modulation of the electric field is negligible.
 	
-
+	
 	
 	
 	
@@ -188,14 +187,12 @@
 	\end{equation}
 	is the Fourier transform of the isotropic part of the polarization tensor. 
 	
-	We note here that the plasmons also generate a magnetic field, which couples to the magnons through the Zeeman coupling \cite{costaStronglyCoupledMagnonplasmon2023,yuanStrongTunableCoupling2024,yuanBreakingSurfacePlasmonExcitation2024}. This process generates a bilinear plasmon-magnon coupling, and can thus be readily distuingished from the quadratic in magnon operators coupling we consider here. 
-	
 	For a Rutile AFM, the anions break the inversion symmetry along specific bonds, thus allowing for a finite polarization, as indicated for a single bond in \cref{fig:setup}. This results in the polarization
 	\begin{equation}
 		\bm \pi_{\bm k}^R = \ii g \cos\left(\frac{\phi_{\mathrm{nn}}^R}{2} \right)\ \begin{pmatrix}
-			2c \sin(\frac12 k_x c) \sin(\frac12 k_y a) \sin(\frac12 k_z a) \\
-			0.45a \cos(\frac12 k_x c) \cos(\frac12 k_y a) \sin(\frac12 k_z a)\\
-			0.45a \cos(\frac12 k_x c) \sin(\frac12 k_y a) \cos(\frac12 k_z a)
+			7.63c \sin(\frac12 k_x c) \sin(\frac12 k_y a) \sin(\frac12 k_z a) \\
+			1.63a \cos(\frac12 k_x c) \cos(\frac12 k_y a) \sin(\frac12 k_z a)\\
+			1.63a \cos(\frac12 k_x c) \sin(\frac12 k_y a) \cos(\frac12 k_z a)
 		\end{pmatrix},
 		\label{eq:pik-Rutiles}
 	\end{equation}
@@ -205,13 +202,13 @@
 	For the two-dimensional AFM we have that the bond inversion symmetry is broken by the non-magnetic ions placed in a checkerboard, which gives 
 	\begin{equation}
 		\bm \pi_{\bm k}^{2D} = \ii g \cos\left(\frac{\phi_{\mathrm{nn}}^{2D}}{2}\right)\ \begin{pmatrix}
-			a\sin( k_y a) \\
-			a\sin(k_x a) \\ 
+			2a\sin( k_y a) \\
+			2a\sin(k_x a) \\ 
 			0
 		\end{pmatrix}.
 		\label{eq:pik-cuprates}
 	\end{equation}
-	Here $g$ is a phenomenological parameter with units charge, and $\phi_{\mathrm{nn}}^{R}$, $\phi_{\mathrm{nn}}^{2D}$  is the angle the bond between magnetic ions makes with the bond from a magnetic ion to the non-magnetic ion that breaks the bond inversion symmetry. We provide an explicit calculation of $\bm \pi_{\bm k}^R $ and $\bm \pi_{\bm k}^{2D}$ in \cref{app:polarization}.
+	Here $g$ is a phenomenological parameter with units charge, and $\phi_{\mathrm{nn}}^{R}$, $\phi_{\mathrm{nn}}^{2D}$  is the angle the bond between magnetic ions makes with the bond from a magnetic ion to the non-magnetic ion that breaks the bond inversion symmetry. 
 	
 	
 	We can directly write down the resulting plasmon self-energy \cite{stoofUltracoldQuantumFields2009} up to second order in the electric field, of which there are three kinds, depicted in \cref{fig:feynmann}: (a) forward, (b) backward, and (c) circle diagrams. Since magnons are non-conserved bosonic particles, at zero temperature no magnons are present and thus the circle diagram does not contribute. We note here that it is precisely this circle diagram which produces the temperature-activated magnon-plasmon coupling in the metallic ferromagnet considered in Ref.~\cite{ghoshPlasmonmagnonInteractionsTwodimensional2023}. Since the scattering processes (described by $\hat{\bm V}_{\bm k,\bm q}^{\mathrm{scatt}}$) only enter in the circle diagram, we can neglect them from here on out. 
@@ -256,25 +253,16 @@
 	\end{equation}
 	which we refer to as ``spin-zero'' because no change in net spin is associated with the pair creation of magnons with momenta $\bm k,\bm q-\bm k$. In other words, it corresponds to the simultaneous pair creation of magnons, $\sim\alpha_{\bm k}^\dagger\beta_{\bm q-\bm k}^\dagger $ and $\sim\beta_{\bm k}^\dagger\alpha_{\bm q-\bm k}^\dagger $, which in an AFM does not require spin-orbit coupling and thus conserves spin. It is therefore directly related to the imaginary part of the plasmon self-energy,
 	\begin{equation}
-		\Im[\Sigma_{\bm q}(\epsilon)] \propto \frac{1}{N_x N_y}\sum_{\bm k}\sum_{\sigma,\sigma'=\pm} {|\bm E_{\bm q}\cdot\bm{\mathcal V}_{\bm k,\bm q}^{\sigma\sigma'}|^2}\delta({\epsilon -\varepsilon_{\bm k} - \varepsilon_{\bm q-\bm k}}), \label{eq:ImEpsilon}
+		\Im[\Sigma_{\bm q}(\epsilon)] \propto \frac{1}{N_x N_y}\sum_{\bm k}\sum_{\sigma,\sigma'=\pm} {|\bm E_{\bm q}\cdot\bm{\mathcal V}_{\bm k,\bm q}^{\sigma\sigma'}|^2}\delta({\epsilon -\varepsilon_{\bm k} - \varepsilon_{\bm q-\bm k}}),
 	\end{equation}
 	weighed by the interaction vertex.  
-	The spin-zero two-magnon DOS therefore plays an important role in determining the plasmon self-energy. 
-	
-	For the antiferromagnetic models considered here, the edges of the spin-zero two-magnon DOS are given by
-	 $2\varepsilon_{\mathrm{min}}$ and $2\varepsilon_{\mathrm{max}}$, where
-	 \begin{align}
-	 	\varepsilon_{\mathrm{min}}&=\sqrt{K(K+2zJ)} \\
-	 	\varepsilon_\mathrm{max}&=K+zJ,
-	 \end{align}
-	 with $z$ the number of nearest neighbors. Importantly, at the upper edge of the continuum a Van Hove singularity in the spin-zero two-magnon DOS is located, which is related to the pair creation of magnons on the Brillouin zone boundary. We show the spin-zero two-magnon DOS in \subfigref{fig:rutile}{(a)} and \subfigref{fig:cuprate}{(a)} for the Rutile and quasi-2D AFM respectively. 
-	 
+	The spin-zero two-magnon DOS therefore plays an important role in       determining the plasmon self-energy. For the antiferromagnetic models considered here, the edges of the spin-zero two-magnon DOS are given by $2\varepsilon_{\mathrm{min}}$ and $2\varepsilon_{\mathrm{max}}$, where $\varepsilon_{\mathrm{min}}=\sqrt{K(K+2zJ)}$ and $\varepsilon_\mathrm{max}=K+zJ$, with $z$ the number of nearest neighbors. Importantly, at the upper edge of the continuum a Van Hove singularity in the spin-zero two-magnon DOS is located, which is related to the pair creation of magnons on the Brillouin zone boundary. We show the spin-zero two-magnon DOS in \subfigref{fig:rutile}{(a)} and \subfigref{fig:cuprate}{(a)} for the Rutile and quasi-2D AFM respectively.
 	
 	
 	
-	It is important to take into account that higher-order magnon-magnon interactions will renormalize the plasmon self-energy, since the two excited magnons  are close to each other in real space and will thus interact through magnon-magnon interactions. The main effect of this interaction is to cut the Van Hove singularity at the Brillouin zone edge. We take this broadening into account by introducing a finite magnon lifetime, $\varepsilon_{\bm k} \rightarrow \varepsilon_{\bm k}-\ii \gamma$, where $\gamma=0.1\varepsilon_{\mathrm{max}}$ is chosen to reproduce the broadening calculated through many-body theory in the context of Raman scattering \cite{canaliTheoryRamanScattering1992}. The magnon-magnon interaction will also induce a small energy shift, which we neglect here.
+	It is important to take into account that higher-order magnon-magnon interactions will renormalize the plasmon self-energy, since the two excited magnons  are close to each other in real space and will thus interact through magnon-magnon interactions. The main effect of this interaction is to cut the Van Hove singularity at the Brillouin zone edge. We take this broadening into account by introducing a finite magnon lifetime, $\varepsilon_{\bm k} \rightarrow \varepsilon_{\bm k}-\ii \gamma$, where $\gamma=0.1\varepsilon_{\mathrm{max}}$ is chosen to reproduce the broadening calculated through many-body theory in the context of Raman scattering \cite{canaliTheoryRamanScattering1992}. Note that the magnon-magnon interaction will also induce a small energy shift, which we neglect here.
 	
-	The plasmon self-energy is derived perturbatively, and thus assumes that the magnon-plasmon coupling is small. This is however not a straightforward requirement, since the plasmon self-energy is strongly enhanced due to the Van Hove singularity at the zone boundary. We therefore additionally require that the plasmon self-energy is smaller than the plasmon energy, i.e., $|\Sigma_{\bm q}(\epsilon)|<\epsilon$. We enforce this requirement by choosing a suitably small coupling constant $g$. Beyond the perturbative limit, i.e., if $|\Sigma_{\bm q}(\epsilon)|>\epsilon$, this system should instead by treated in the strong-coupling regime, for example within a many-body picture \cite{verresenAvoidedQuasiparticleDecay2019}.
+	The plasmon self-energy is derived perturbatively, and thus assumes that the magnon-plasmon coupling is small. This is however not a straightforward requirement, since the plasmon self-energy is strongly enhanced due to the Van Hove singularity at the zone boundary. We therefore additionally require that the plasmon self-energy is smaller than the plasmon energy, i.e., $|\Sigma_{\bm q}(\epsilon)|<\epsilon$. We enforce this requirement by choosing a suitably small coupling constant $g$. Beyond the perturbative limit, i.e., if $|\Sigma_{\bm q}(\epsilon)|>\epsilon$, this system should instead by treated in the strong-coupling regime \cite{verresenAvoidedQuasiparticleDecay2019}.
 	
 	
 	\section{Results}
@@ -288,7 +276,7 @@
 		\mathcal G_{\bm q}(\epsilon) = \left[\epsilon + \ii 0^+ - \mathcal{E}_{\bm q}(1-\ii\gamma) - \Sigma_{\bm q}(\epsilon) \right]^{-1}
 	\end{equation}
 	is the plasmon retarded Greens function. Here $\mathcal E_{\bm q}\propto\sqrt{q}$ is the plasmon dispersion, which we give in \cref{app:plasmon}. We have included a finite plasmon lifetime through the inverse plasmon quality factor, which we set to $\gamma=\gammaplasmon$ \cite{principiIntrinsicLifetimeDirac2013}. 
-	Furthermore, we set $g=\gpolarizationrutile\times e$, which is comparable in magnitude to the polarization amplitude calculated for \ch{Sr2IrO4} \cite{seifertOpticalExcitationMagnons2019} and \ch{Cr2O3} \cite{mostovoyTemperatureDependentMagnetoelectricEffect2010} and for a Hubbard model with $t/U=0.1$ \cite{zhuSpinorbitCouplingElectronic2014}. These polarization amplitudes were chosen to remain in the perturbative regime, i.e., such that we have $|\Sigma_{\bm q}(\epsilon)|<\epsilon$. For simplicity, we also consider the Rutile-AFM to  be cubic, i.e., $a=c$. Then we have $\phi_{\mathrm{nn}}^{R}=\SI{119}{\degree}$, whereas for the quasi-2D AFM we have $\phi_{\mathrm{nn}}^{2D}=\SI{90}{\degree}$.
+	Furthermore, we set $g=\gpolarizationrutile\times e$, which is comparable in magnitude to the polarization amplitude calculated for \ch{Sr2IrO4} \cite{seifertOpticalExcitationMagnons2019} and \ch{Cr2O3} \cite{mostovoyTemperatureDependentMagnetoelectricEffect2010} and for a Hubbard model with $t/U=0.1$ \cite{zhuSpinorbitCouplingElectronic2014}. These polarization amplitudes were chosen to remain in the perturbative regime, i.e., such that we have $|\Sigma_{\bm q}(\epsilon)|<\epsilon$. For simplicity, we also consider the Rutile-AFM to  be cubic, i.e., $a=c$. Then we have $\phi_{\mathrm{nn}}^{R}=\SI{119}{\degree}$, whereas for the quasi-2D AFM we have $\phi_{\mathrm{nn}}^{3D}=\SI{90}{\degree}$.
 	
 	\subsection{Rutile-based antiferromagnet}
 	\begin{figure*}
@@ -308,13 +296,12 @@
 	
 	
 	We show the resulting plasmon spectral function for a Rutile-based AFM in \subfigref{fig:rutile}{(b)}, as a function of wave vector $\bm q$ and energy $\epsilon$, for a plasmon propagating along ${x}$ and ${y}$. We have chosen the wave vector range such that the plasmon energies are comparable to the magnon energies. The white dotted line indicates the bare plasmon dispersion. 
-	The lower and upper edges of the spin-zero two-magnon continuum are indicated by the horizontal white lines. We remind the reader that the spin-zero two-magnon continuum is directly related to the imaginary part of the plasmon self-energy [\cref{eq:ImEpsilon}], and is thus related to the plasmon decay.
+	The lower and upper edges of the spin-zero two-magnon continuum are indicated by the horizontal white lines. 
 	For the range of wave vectors considered here, the decay length $\lambda$ is comparable to the wave length, i.e., of the order of several micrometers, which will significantly enhance the coupling. 
 	
 	
 	
-	We first focus on a plasmon propagating along ${x}$, where we observe that below the spin-zero two-magnon continuum the plasmon dispersion is unaffected. This is to be expected, since here the imaginary part of the plasmon self-energy is strictly zero. Upon entering the spin-zero two-magnon continuum, the plasmon decays into the spin-zero two-magnon continuum \cite{verresenAvoidedQuasiparticleDecay2019}, in particular at the Van Hove singularity, which is located at the upper edge of the continuum.
-	After exiting the spin-zero two-magnon continuum, the plasmon becomes visible again, but its dispersion is normalized---as can be seen by comparing the plasmon spectral function above the spin-zero two-magnon continuum with the bare dispersion (white dotted line). 
+	We first focus on a plasmon propagating along ${x}$, where we observe that below the spin-zero two-magnon continuum the plasmon dispersion is unaffected. Upon entering the spin-zero two-magnon continuum, the plasmon decays into the continuum \cite{verresenAvoidedQuasiparticleDecay2019}, in particular at the singularity at the upper edge of the continuum. After exiting the spin-zero two-magnon continuum, the plasmon becomes visible again, but its dispersion is normalized---as can be seen by comparing the plasmon spectral function above the spin-zero two-magnon continuum with the bare dispersion (white dotted line). 
 	
 	We stress that we remain in the weak-coupling regime, such that $|\Sigma_{\bm q}(\epsilon)|<\epsilon$ for all $\epsilon$. We are however not far removed from the strong coupling limit, as can for example be seen by comparing the magnitude of the induced avoided crossing (for $\bm q\parallel \hat x$) with the plasmon energies. At this crossing, we have for the current parameter set that $|\Sigma_{\bm q}(\epsilon)|/\epsilon\approx0.8$, highlighting that we are close to the strong coupling regime.
 	Since the polarization strength $g$ enters quadratically, it is also relatively easy to reach the strong-coupling regime, where $|\Sigma_{\bm q}(\epsilon)|>\epsilon$, for slightly stronger polarization strengths. As was also explained before, here our perturbative treatment breaks down and we are unable to reliably calculate the full plasmon spectral function. We have thus restricted ourselves here to the weak-coupling regime, but it seems likely that the strong-coupling regime can also be reached. In the strong-coupling regime, it might also be possible to observe the expulsion of the plasmon from the Van Hove singularity \cite{verresenAvoidedQuasiparticleDecay2019}.
@@ -332,7 +319,7 @@
 	We now consider the quasi-2D AFM, and show the resulting plasmon spectral function in \cref{fig:cuprate}, considering the propagation of plasmons along $ x$ and $ y$. As before, the white dotted line indicates the bare plasmon dispersion and the lower and upper edges of the spin-zero two-magnon continuum are indicated by the horizontal white lines. 
 	
 	
-	From the plasmon spectral function in \subfigref{fig:cuprate}{(b)} we observe that the plasmon again strongly decays as its frequency matches the Van Hove singularity in the spin-zero two-magnon DOS, similar to the results obtained for the Rutile AFM. For plasmon frequencies above the continuum, the plasmon is again renormalized. This therefore qualitatively reproduces the results for the three-dimensional Rutile-based AFM. Note again that we have restricted ourselves to the weak-coupling regime, but the strong-coupling regime can again be easily reached with a slightly stronger polarization strength. We also stress here that it is difficult to make direct comparisons between the rutile and quasi-2D AFM, since they are different models.
+	From the plasmon spectral function in \subfigref{fig:cuprate}{(b)} we observe that the plasmon again strongly decays as it enters the Van Hove singularity in the spin-zero two-magnon DOS, similar to the results obtained for the Rutile AFM. Above the continuum, the plasmon is again renormalized. This therefore qualitatively reproduces the results for the three-dimensional Rutile-based AFM. Note again that we have restricted ourselves to the weak-coupling regime, but the strong-coupling regime can again be easily reached with a slightly stronger polarization strength. We also stress here that it is difficult to make direct comparisons between the rutile and quasi-2D AFM, since they are different models.
 	
 	The polarization is invariant under rotation in the plane, and thus the plasmon self-energy is identical for all propagation directions---as can also be seen by comparing the propagation along $x$ and $y$ in \subfigref{fig:cuprate}{(b)}.
 	
@@ -449,26 +436,6 @@
 	
 	
 	Throughout this work, we set $S=1$. Maybe less clashy: For the Rutile AFM, $J=\Jexchange$, $K=\Kani$ (parameters inspired by \ch{MnF2} \cite{rezendeIntroductionAntiferromagneticMagnons2019}) and for the quasi-2D AFM, we take $J=\Jexchangecupr$, $K=\Kanicupr$. Note that in the Rutile-AFM, the anions could introduce a non-zero further-neighbor coupling, which leads to an altermagnetic splitting of the band structure \cite{smejkalChiralMagnonsAltermagnetic2023,gohlkeSpuriousSymmetryEnhancement2023}, but this is splitting has negligible effects on the magnon continuum close to the $\Gamma$ point. We have therefore neglected it here. Similarly, the non-magnetic ions in the quasi-two dimensional AFM could introduce a non-zero further-neighbor coupling and thus an altermagnetic spin splitting \cite{brekkeTwodimensionalAltermagnetsSuperconductivity2023}.
-	
-	\section{Bond polarization}
-	\label{app:polarization}
-	In absence of spin-orbit coupling, the polarization operator $\bm \pi_{ij}$ for the bond connecting sites $i$ and $j$ is given by \cite{zhuSpinorbitCouplingElectronic2014}
-	\begin{equation}
-		\bm \pi_{ij} = g_{ij} a_{ij}\sum_k(\bm e_{jk} - \bm e_{ki}),
-	\end{equation}
-	where $k$ is any additional site which mediates hopping between sites $i$ and $j$. Here $\bm e_{ij}$ is the unit vector connecting sites $i$ and $j$, $a_{ij}$ is the distance between sites $i$ and $j$ and $g_{ij}$ is a phenomenological parameter describing the polarization amplitude, with units charge. 
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\columnwidth]{angles}
-		\caption{For the quasi-2D AFM, the polarization operator illustrated between two magnetic sites $i$ and $j$, as mediated by a non-magnetic site $k$. \label{fig:angles}}
-	\end{figure}
-	
-	We illustrate this by working out the polarization operator for the quasi-2D AFM, as illustrated in \cref{fig:angles}. For the two sites $i$ and $j$ indicated, the 
-	two relevant unit vectors are $\bm e_{ki} = \tfrac{1}{\sqrt{2}}(-1,-1)$ and $\bm e_{jk}=\tfrac{1}{\sqrt{2}}(-1,1)$, such that the direction of the polarization operator is $(\bm e_{jk}-\bm e_{ki})=(0,-\sqrt{2})$, as indicated. Alternatively, we can directly write down $(\bm e_{jk}-\bm e_{ki})=\frac12\cos(\phi_{\mathrm{nn}}/2)$, which is what we use in \cref{eq:pik-Rutiles,eq:pik-cuprates}. We then directly obtain that
-	\begin{equation}
-		\bm \pi_{ij} = \frac{1}{2}ag\cos\left(\frac{\phi_{\mathrm{nn}}}{2}\right)\ \hat{y}
-	\end{equation}
 	
 	\section{Full self-energy diagrams}
 	\label{app:self-energies-magnon}
