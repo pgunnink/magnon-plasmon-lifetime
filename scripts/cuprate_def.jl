@@ -6,7 +6,7 @@ Base.@kwdef mutable struct ParamsCuprate
     J = 1u"meV"
     K = 0.01u"meV"
     a = 2.5u"Å"
-    bareg = 4e-3Unitful.q
+    bareg = 1e-2Unitful.q
     g = bareg * a * cos(deg2rad(90 / 2))
     # g = 8 * 0.1^3 * Unitful.q * a
     # g = 4.4e-4u"meV / (kV / cm)"
@@ -26,7 +26,7 @@ Ek_cupr(k, p) = sqrt(A_cupr(k, p)^2 - B_cupr(k, p)^2)
 ωk_cupr(k, p) = Ek_cupr(k, p) / ħ
 
 
-vertexbare(k, p) = 2p.g .* [
+vertexbare(k, p) = p.g .* [
     sin(k[2] * p.a), sin(k[1] * p.a), 0
 ]
 

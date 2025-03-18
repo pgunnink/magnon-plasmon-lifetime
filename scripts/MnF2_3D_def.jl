@@ -13,7 +13,7 @@ Base.@kwdef mutable struct ParamsMnF
     a = 5u"Å"
     c = 3u"Å"
     # g = 8 * 0.1^3 * Unitful.q * cos(deg2rad(128 / 2))
-    bareg = 4e-3Unitful.q
+    bareg = 1e-2Unitful.q
     g = bareg * cos(deg2rad(119 / 2))
     Nz = 1
     α = 5e-2
@@ -36,9 +36,9 @@ Ek_MnF(k, p) = sqrt(A_MnF(k, p)^2 - B_MnF(k, p)^2) * [1, 1] .+ δA_MnF(k, p) .* 
 
 # 100 orientation
 vertexbare(k, p) = p.g .* [
-    -7.63im * p.a * sin(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
-    -1.63im * p.a * cos(0.5k[1] * p.a) * cos(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
-    -1.63im * p.a * cos(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * cos(0.5k[3] * p.a)
+    -2im * p.a * sin(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
+    -0.45im * p.a * cos(0.5k[1] * p.a) * cos(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
+    -0.45im * p.a * cos(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * cos(0.5k[3] * p.a)
 ]
 
 
