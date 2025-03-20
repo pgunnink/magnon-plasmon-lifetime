@@ -37,7 +37,7 @@
 \newcommand{\gpolarizationrutile}{\num{4e-03}}
 \newcommand{\Jexchangecupr}{\SI{1.0}{meV}}
 \newcommand{\Kanicupr}{\SI{0.01}{meV}}
-\newcommand{\gpolarizationcuprate}{\num{4e-03}}
+\newcommand{\gpolarizationcuprate}{\num{1e-02}}
 \newcommand{\epsilonplasmon}{\num{10}}
 \newcommand{\gammaplasmon}{\num{e-02}}
 \newcommand{\Efermi}{\SI{100}{meV}}
@@ -93,7 +93,9 @@
 	
 	\section{Polarization}
 	\label{sec:polarization}
-	Microscopically, the resonant coupling between an electric field and the spin excitations in a magnetic material is described by the Hamiltonian \cite{moriyaTheoryLightScattering1967}
+	The coupling between the magnetization and an electric field has been extensively studied in the context of the magnetoelectric (ME) effect \cite{landauElectrodynamicsContinuousMedia1984,dongMagnetoelectricityMultiferroicsTheoretical2019}, where the electric polarization can be controlled by a magnetic field and the magnetization by an electric field. In the static regime, this leads to the control of bulk magnetism with electric fields.
+	
+	The magnetoelectric effect is however not limited to the static regime, and can also generate a resonant coupling between an electric field and the spin excitations in a magnetic material. This coupling is described by the polarization operator, $\hat{\bm P_{i}}$, which results in the Hamiltonian \cite{moriyaTheoryLightScattering1967,zhuSpinorbitCouplingElectronic2014,malzTopologicalMagnonAmplification2019,seifertOpticalExcitationMagnons2019}
 	\begin{equation}
 		\mathcal H_c = -\sum_i \hat{\bm E}_i \cdot \hat{\bm P_{i}}
 	\end{equation}
@@ -103,9 +105,9 @@
 	\end{equation}
 	is the polarization operator expanded up to second order in spin operators. 
 	We have decomposed the polarization tensor into the isotropic part $\bm \pi$ and the traceless part $\bm \Gamma$. The allowed components of this tensor are determined by lattice symmetries, and are modified in the presence of spin-orbit coupling. 
-	In this work we consider only the isotropic part $\bm\pi$, which does not require spin-orbit coupling and is non-zero for any bond where its center is not a center of inversion. 
+	In this work we consider only the isotropic part $\bm\pi$, which does not require spin-orbit coupling and is non-zero for any bond where its center is not a center of inversion. Microscopically, this is the exchange-striction mechanism arising from the symmetric spin exchange interaction \cite{sergienkoFerroelectricityMagneticEPhase2006,bolensTheoryElectronicMagnetoelectric2018}
 	
-	The direction of $\bm \pi$ is set by the crystal symmetries \cite{seifertOpticalExcitationMagnons2019,bolensTheoryElectronicMagnetoelectric2018},  whereas its magnitude depends on the microscopic details. Generally, the polarization $\bm\pi_{ij}$ between sites $i,j$ is mediated by an additional site $k$ which mediates the hopping and breaks the inversion symmetry for this specific bond. One can then write
+	The direction of $\bm \pi$ is set by the crystal symmetries \cite{moriyaTheoryLightScattering1967,seifertOpticalExcitationMagnons2019,bolensTheoryElectronicMagnetoelectric2018}, whereas its magnitude depends on the microscopic details. Generally, the polarization $\bm\pi_{ij}$ between sites $i,j$ is mediated by an additional site $k$ which mediates the hopping and breaks the inversion symmetry for this specific bond. One can then write
 	$  \bm \pi_{ij} = g_{ij}a_{ij}(\bm e_{jk} - \bm e_{ki})$ \cite{zhuSpinorbitCouplingElectronic2014}, where $g$ is a parameter describing the polarization amplitude, $a_{ij}$ is the bond length and $\bm e_{ij}$ is the unit vector between atoms $i$ and $j$. Within a Fermi-Hubbard model at half filling it is possible to derive the polarization amplitude as 
 	$g_{ij}= 8e t_{ij}t_{jk}t_{ki}/U^3$, where $e$ is the electron charge, $t_{ij}$ is the hopping amplitude between $i$ and $j$, and $U$ is the Coulomb repulsion \cite{zhuSpinorbitCouplingElectronic2014}. Note that this expression was derived in the Mott insulating limit, and therefore $t/U\ll1$. In this work, we will consider the polarization amplitude $g_{ij}$ to be a phenomenological parameter.
 	
@@ -211,10 +213,16 @@
 		\end{pmatrix}.
 		\label{eq:pik-cuprates}
 	\end{equation}
-	Here $g$ is a phenomenological parameter with units charge, and $\phi_{\mathrm{nn}}^{R}$, $\phi_{\mathrm{nn}}^{2D}$  is the angle the bond between magnetic ions makes with the bond from a magnetic ion to the non-magnetic ion that breaks the bond inversion symmetry. We provide an explicit calculation of $\bm \pi_{\bm k}^R $ and $\bm \pi_{\bm k}^{2D}$ in \cref{app:polarization}.
+	Here $g$ is a phenomenological parameter with units charge, and $\phi_{\mathrm{nn}}^{R}$, $\phi_{\mathrm{nn}}^{2D}$  is the angle the bond between magnetic ions makes with the bond from a magnetic ion to the non-magnetic ion that breaks the bond inversion symmetry. We provide more details on how to calculate $\phi_{\bm k}$ in \cref{app:polarization}.
 	
+	Having obtained the coupling Hamiltonian, we now write down the interacting (Matsubara) plasmon Green's function \cite{stoofUltracoldQuantumFields2009,rastelliStatisticalMechanicsMagnetic2013} as
+	\begin{multline}
+		\mathcal G_{\bm q}(\tau) \approx \mathcal G_{\bm q}^{(0)}(\tau)\\ -\frac{1}{2!} \int_0^\beta d\tau_1 \int_0^\beta d\tau_2 \langle T_\tau H_c(\tau_1)H_c(\tau_2) \phi_{\bm q}(\tau)\phi_{\bm q}^\dagger
+		\rangle_{\mathrm{con}}^{(0)}, \label{eq:Gint}
+	\end{multline}
+	where $ \mathcal G_{\bm q}^{(0)}(\tau)\equiv -\langle T_\tau \phi_{\bm q}(\tau)\phi_{\bm q}^\dagger \rangle^{(0)}$ is the noninteracting plasmon Green's function, $\beta\equiv(k_B T)^{-1}$ is the inverse temperature and $T_\tau$ is the time-ordering operator in imaginary time $\tau$. Finally, $\langle\dots\rangle_{\mathrm{con}}^{(0)}$ indicates averaging over the connected diagrams.
 	
-	We can directly write down the resulting plasmon self-energy \cite{stoofUltracoldQuantumFields2009} up to second order in the electric field, of which there are three kinds, depicted in \cref{fig:feynmann}: (a) forward, (b) backward, and (c) circle diagrams. Since magnons are non-conserved bosonic particles, at zero temperature no magnons are present and thus the circle diagram does not contribute. We note here that it is precisely this circle diagram which produces the temperature-activated magnon-plasmon coupling in the metallic ferromagnet considered in Ref.~\cite{ghoshPlasmonmagnonInteractionsTwodimensional2023}. Since the scattering processes (described by $\hat{\bm V}_{\bm k,\bm q}^{\mathrm{scatt}}$) only enter in the circle diagram, we can neglect them from here on out. 
+	We can now apply Wick's theorem, to write down the resulting plasmon self-energy \cite{stoofUltracoldQuantumFields2009} up to second order in the electric field, of which there are three kinds, depicted in \cref{fig:feynmann}: (a) forward, (b) backward, and (c) circle diagrams. Since magnons are non-conserved bosonic particles, at zero temperature no magnons are present and thus the circle diagram does not contribute. We note here that it is precisely this circle diagram which produces the temperature-activated magnon-plasmon coupling in the metallic ferromagnet considered in Ref.~\cite{ghoshPlasmonmagnonInteractionsTwodimensional2023}. Since the scattering processes (described by $\hat{\bm V}_{\bm k,\bm q}^{\mathrm{scatt}}$) only enter in the circle diagram, we can neglect them from here on out. Finally, we note that the ``tadpole'' diagram does not exist, since this requires a two plasmon, one magnon interaction process.
 	
 	
 	The main contribution will come from the forward diagram, based on which we can directly write the plasmon self-energy at zero temperature as
@@ -316,7 +324,7 @@
 	We first focus on a plasmon propagating along ${x}$, where we observe that below the spin-zero two-magnon continuum the plasmon dispersion is unaffected. This is to be expected, since here the imaginary part of the plasmon self-energy is strictly zero. Upon entering the spin-zero two-magnon continuum, the plasmon decays into the spin-zero two-magnon continuum \cite{verresenAvoidedQuasiparticleDecay2019}, in particular at the Van Hove singularity, which is located at the upper edge of the continuum.
 	After exiting the spin-zero two-magnon continuum, the plasmon becomes visible again, but its dispersion is normalized---as can be seen by comparing the plasmon spectral function above the spin-zero two-magnon continuum with the bare dispersion (white dotted line). 
 	
-	We stress that we remain in the weak-coupling regime, such that $|\Sigma_{\bm q}(\epsilon)|<\epsilon$ for all $\epsilon$. We are however not far removed from the strong coupling limit, as can for example be seen by comparing the magnitude of the induced avoided crossing (for $\bm q\parallel \hat x$) with the plasmon energies. At this crossing, we have for the current parameter set that $|\Sigma_{\bm q}(\epsilon)|/\epsilon\approx0.8$, highlighting that we are close to the strong coupling regime.
+	We stress that we remain in the weak-coupling regime, such that $|\Sigma_{\bm q}(\epsilon)|<\epsilon$ for all $\epsilon$. We are however not far removed from the strong coupling limit, as can for example be seen by comparing the magnitude of the induced avoided crossing (for $\bm q\parallel \hat x$) with the plasmon energies. At this crossing, we have for the current parameter set that $|\Sigma_{\bm q}(\epsilon)|/\epsilon\approx0.4$, highlighting that we are close to the strong coupling regime.
 	Since the polarization strength $g$ enters quadratically, it is also relatively easy to reach the strong-coupling regime, where $|\Sigma_{\bm q}(\epsilon)|>\epsilon$, for slightly stronger polarization strengths. As was also explained before, here our perturbative treatment breaks down and we are unable to reliably calculate the full plasmon spectral function. We have thus restricted ourselves here to the weak-coupling regime, but it seems likely that the strong-coupling regime can also be reached. In the strong-coupling regime, it might also be possible to observe the expulsion of the plasmon from the Van Hove singularity \cite{verresenAvoidedQuasiparticleDecay2019}.
 	
 	We next turn to a plasmon along ${y}$, where the coupling to the continuum is much weaker, and there is no noticeable decay. 
@@ -365,7 +373,7 @@
 	\label{sec:conclusion}
 	We have shown in this work that plasmons couple to the spin-zero two-magnon continuum in antiferromagnetic thin films with a finite bond polarization. This allows a plasmon to excite and annihilate magnon pairs and thus couple to the spin-zero two-magnon continuum. We find that the plasmon mode decays as it enters the Van Hove singulariy at the upper edge of the spin-zero two-magnon continuum, and is renormalized upon exiting the continuum again. Furthermore, we predict that the strong coupling regime could potentially be achieved in Rutile and quasi-two-dimensional antiferromagnets. 
 	
-	One could reasonably ask the question if the large plasmon self-energies are not due to a failure of the perturbation theory used to obtain the self-energy expressions. Firstly, we note that we have neglected here the magnon self-energies which also arise from the same coupling Hamiltonian \cref{eq:Hc-AFM-final}. We show however in \cref{app:self-energies-magnon} that the decay of a magnon into a plasmon and a magnon is kinematically not allowed, due to the strong mismatch in wavelength between the magnons and plasmons---and thus the magnon self-energy vanishes. Up to second order in the plasmon electric field $\bm E_{\bm q}$ our theory is therefore complete. This leaves diagrams which are of higher order in $\bm E_{\bm q}$ to potentially renormalize the coupling of the plasmon to the spin-zero two-magnon continuum. However, since $\bm E_{\bm q}$ is typically small, we do not expect this effect to be significant. This leaves the	magneto-optical couplings which are typically considered in two-magnon Raman scattering, which are quadratic in plasmon operators. We show in \cref{app:self-energies-magnon} that these self energies have a reduced phase space available and we thus expect this self energy to be significantly weaker. We note however that the Raman scattering will be the leading contribution if all bonds are inversion symmetric, since in that case the polarization operator $\bm \pi$ vanishes.
+	One could reasonably ask the question if the large plasmon self-energies are not due to a failure of the perturbation theory used to obtain the self-energy expressions. Firstly, we note that we have neglected here the magnon self-energies which also arise from the same coupling Hamiltonian \cref{eq:Hc-AFM-final}. We show however in \cref{app:self-energies-magnon} that the decay of a magnon into a plasmon and a magnon is kinematically not allowed, due to the strong mismatch in wavelength between the magnons and plasmons---and thus the magnon self-energy vanishes. Up to second order in the plasmon electric field $\bm E_{\bm q}$ our theory is therefore complete. This leaves diagrams which are of higher order in $\bm E_{\bm q}$ to potentially renormalize the coupling of the plasmon to the spin-zero two-magnon continuum. However, since $\bm E_{\bm q}$ is typically small, we do not expect this effect to be significant. This leaves the magneto-optical couplings which are typically considered in two-magnon Raman scattering, which are quadratic in plasmon operators. We show in \cref{app:magneto-optic} that these self energies have a reduced phase space available and we thus expect this self energy to be significantly weaker. We note however that the Raman scattering will be the leading contribution if all bonds are inversion symmetric, since in that case the polarization operator $\bm \pi$ vanishes.
 	
 	
 	As a first step, we have considered a heterostructure of a 2DEG and an insulating AFM, such that the magnons and plasmon are separated in space and couple through the plasmons electric field. We also expect that within a metallic antiferromagnet, which could host both plasmons and magnons, the same coupling could occur, as was already shown by Ref.~\cite{ghoshPlasmonmagnonInteractionsTwodimensional2023} for metallic ferromagnets. Here the coupling would potentially be enlarged, since the plasmons and magnons are no longer physically separated.
@@ -450,13 +458,13 @@
 	
 	Throughout this work, we set $S=1$. Maybe less clashy: For the Rutile AFM, $J=\Jexchange$, $K=\Kani$ (parameters inspired by \ch{MnF2} \cite{rezendeIntroductionAntiferromagneticMagnons2019}) and for the quasi-2D AFM, we take $J=\Jexchangecupr$, $K=\Kanicupr$. Note that in the Rutile-AFM, the anions could introduce a non-zero further-neighbor coupling, which leads to an altermagnetic splitting of the band structure \cite{smejkalChiralMagnonsAltermagnetic2023,gohlkeSpuriousSymmetryEnhancement2023}, but this is splitting has negligible effects on the magnon continuum close to the $\Gamma$ point. We have therefore neglected it here. Similarly, the non-magnetic ions in the quasi-two dimensional AFM could introduce a non-zero further-neighbor coupling and thus an altermagnetic spin splitting \cite{brekkeTwodimensionalAltermagnetsSuperconductivity2023}.
 	
-	\section{Bond polarization}
+	\section{Polarization operator}
 	\label{app:polarization}
 	In absence of spin-orbit coupling, the polarization operator $\bm \pi_{ij}$ for the bond connecting sites $i$ and $j$ is given by \cite{zhuSpinorbitCouplingElectronic2014}
 	\begin{equation}
-		\bm \pi_{ij} = g_{ij} a_{ij}\sum_k(\bm e_{jk} - \bm e_{ki}),
+		\bm \pi_{ij} = g_{ij} a_{ij}(\bm e_{jk} - \bm e_{ki}),
 	\end{equation}
-	where $k$ is any additional site which mediates hopping between sites $i$ and $j$. Here $\bm e_{ij}$ is the unit vector connecting sites $i$ and $j$, $a_{ij}$ is the distance between sites $i$ and $j$ and $g_{ij}$ is a phenomenological parameter describing the polarization amplitude, with units charge. 
+	where $k$ is any additional site which mediates hopping between sites $i$ and $j$, and summation over $k$ is implied if there are multiple sites mediating hopping between $i$ and $j$. $\bm e_{ij}$ is the unit vector connecting sites $i$ and $j$, $a_{ij}$ is the distance between sites $i$ and $j$ and $g_{ij}$ is a phenomenological parameter describing the polarization amplitude, with units charge. 
 	
 	\begin{figure}
 		\centering
@@ -465,10 +473,11 @@
 	\end{figure}
 	
 	We illustrate this by working out the polarization operator for the quasi-2D AFM, as illustrated in \cref{fig:angles}. For the two sites $i$ and $j$ indicated, the 
-	two relevant unit vectors are $\bm e_{ki} = \tfrac{1}{\sqrt{2}}(-1,-1)$ and $\bm e_{jk}=\tfrac{1}{\sqrt{2}}(-1,1)$, such that the direction of the polarization operator is $(\bm e_{jk}-\bm e_{ki})=(0,-\sqrt{2})$, as indicated. Alternatively, we can directly write down $(\bm e_{jk}-\bm e_{ki})=\frac12\cos(\phi_{\mathrm{nn}}/2)$, which is what we use in \cref{eq:pik-Rutiles,eq:pik-cuprates}. We then directly obtain that
+	two relevant unit vectors are $\bm e_{ki} = \tfrac{1}{\sqrt{2}}(-1,-1)$ and $\bm e_{jk}=\tfrac{1}{\sqrt{2}}(-1,1)$, such that the direction of the polarization operator is $(\bm e_{jk}-\bm e_{ki})=(0,-\sqrt{2})$, as indicated. Alternatively, we can directly write down $(\bm e_{jk}-\bm e_{ki})=\frac12\cos(\phi_{\mathrm{nn}}/2)$, where $\phi_{\mathrm{nn}}$ is the angle of the bond. The latter form is what we use \cref{eq:pik-Rutiles,eq:pik-cuprates}. We then directly obtain that
 	\begin{equation}
 		\bm \pi_{ij} = \frac{1}{2}ag\cos\left(\frac{\phi_{\mathrm{nn}}}{2}\right)\ \hat{y}
 	\end{equation}
+	for the two sites indicated in \cref{fig:angles}. After performing the summation over all four neighboring sites and performing the Fourier transform, we obtain \cref{eq:pik-cuprates}.
 	
 	\section{Full self-energy diagrams}
 	\label{app:self-energies-magnon}
@@ -499,26 +508,37 @@
 	
 	However, given the steep plasmon dispersion compared to the magnon dispersion, this is not possible for realistic parameters.\footnote{In particular, note that $\mathcal E_{\bm q}\propto \sqrt{q}$ and thus $\mathcal E_{\bm q}/q\propto q^{-1/2}$.} We thus conclude that there is no imaginary part of the above self energy which could renormalize the singularity at the upper edge of the spin-zero two-magnon continuum.
 	
-	Finally, we note that one could also consider the quadratic magneto-optic interaction, which for simple cubic lattices gives the off-resonant interaction \cite{parviniCavityEnhancedOpticalManipulation2024} 
+	\section{Plasmon self-energy following from the magneto-optic interaction }
+	\label{app:magneto-optic}
+	Here we consider the quadratic magneto-optic interaction, which for simple cubic lattices gives the off-resonant interaction \cite{fleuryScatteringLightOne1968,parviniCavityenhancedOpticalManipulation2025} 
 	\begin{equation}
 		\hat H_{q} = -\sum_{ij} B( \hat{\bm E}_i\cdot \bm r_{ij})( \hat{\bm E}_j^\dagger\cdot \bm r_{ij}) \hat{\bm S}_{i}\cdot\hat{\bm S}_j.
 	\end{equation}
-	Here $B$ is a phenomological coupling strength. Firstly, we note that this interaction is quadratic in electric field, which is typically small and thus we expect this interaction to be weaker. 
+	Here $B$ is a phenomological coupling strength. In a half-filled single-band Hubbard model with hopping $t$ and on-site interaction $U$ it is given by $B={4t^2}/{(U-\hbar\omega)a^2}$ \cite{canaliTheoryRamanScattering1992, shastryTheoryRamanScattering1990}. Firstly, we note that this interaction is quadratic in electric field, which is typically small and thus we expect this interaction to be weaker. 
 	Introducing the Holstein-Primakoff operators, Fourier transforming and applying the Bogoliboiv transformation, the interaction becomes
 	\begin{multline}
 		\hat H_{q} = \frac{S}{N_m}\sum_{\bm k\bm q\bm q'} (\bm E_{\bm q}\cdot \bm \Pi_{\bm q+\bm k})(\bm E_{\bm q'}^\dagger\cdot \bm \Pi_{\bm q+\bm k}) \hat\phi_{\bm q}^\dagger\hat\phi_{\bm q'}\times \\
 		(u_{\bm k}u_{\bm q'-\bm q-\bm k} \alpha_{\bm k}\beta_{\bm q'-\bm q-\bm k} + v_{\bm k}v_{\bm q'-\bm q-\bm k} \alpha^\dagger_{-\bm k}\beta^\dagger_{-\bm q'+\bm q+\bm k}) + (\bm q \leftrightarrow\bm q'),
 	\end{multline}
-	where we have only kept the interactions that will generate a finite self energy at zero temperature. Here, $\bm \Pi_{\bm k}=B\sum_{ij}e^{-\ii \bm r_{ij}\cdot\bm k}\bm r_{ij}$ is the Fourier transform of the nearest-neighbor vectors $\bm r_{ij}$. We now construct the (Matsubara) self energy
+	where we have only kept the interactions that will generate a finite self energy at zero temperature. Here, $\bm \Pi_{\bm k}=B\sum_{ij}e^{-\ii \bm r_{ij}\cdot\bm k}\bm r_{ij}$ is the Fourier transform of the nearest-neighbor vectors $\bm r_{ij}$. 
+	
+	
+	
+	We construct the interacting plasmon Green's function by replacing $H_c$ with $H_q$ in \cref{eq:Gint}. We can now apply Wick's theorem, which gives as the only possible plasmon self-energy the one drawn in \cref{fig:sigma-raman}. Explicitly, we have
 	\begin{multline}
 		\Sigma_{\bm q}(\epsilon) = \frac{N_z^2}{N_m^2}\sum_{\sigma\sigma'}\sum_{kq'} |(\bm E_{\bm q}\cdot\bm{\mathcal Y}_{\bm q,\bm k}^{\sigma\sigma'})(\bm E_{\bm q'}^*\cdot\bm{\mathcal Y}_{\bm q,\bm k}^{\sigma\sigma'})|^2 \times\\
-		\mathcal G^p(q')\mathcal G^m(k)\mathcal G^m(q-q'-k),
+		\mathcal G_p^{(0)}(q')\mathcal G_m^{(0)}(k)\mathcal G_m^{(0)}(q-q'-k), \label{eq:sigma-quadratic}
 	\end{multline}
-	where $\bm{\mathcal Y}_{\bm q,\bm k}^{\sigma\sigma'}$ is the interaction vertex and we used the shorthand notation $k\equiv(\bm k,\ii\omega_n)$. 
-	We show the corresponding Feynmann diagram in \cref{fig:sigma-raman}. 
-	%	In a half-filled single-band Hubbard model it is given by $B=\frac{4t^2}{|E|^2(U-\hbar\omega)a^2}$, where $a$ is the bond length \cite{canaliTheoryRamanScattering1992, shastryTheoryRamanScattering1990}.
+	where $\bm{\mathcal Y}_{\bm q,\bm k}^{\sigma\sigma'}$ is the interaction vertex and we used the shorthand notation $k\equiv(\bm k,\ii\omega_n)$. $\mathcal G_{p/m}^{(0)}$ denote the noninteracting plasmon/magnon Green's function. We do not give the full form of the interaction vertex $\bm{\mathcal Y}_{\bm q,\bm k}^{\sigma\sigma'}$ here, since we will show (see below) that the this self energy is strongly suppressed. 
 	
-	As a first approximation, we evaluate this self energy on-shell, and thus energy conservation requires that $\mathcal E_{\bm q'}<\mathcal E_{\bm q}$. Since the plasmon dispersion is very steep compared to the magnon dispersion, $|\bm q|$ itself is very small. Therefore, the summation over $|\bm q'|$ only runs over a small part of the phase space, significantly suppressing the strength of this self energy. In addition, this self energy is quartic in the electric field, which will suppress its strength further.
+	
+
+	%	
+	Since this is a product of three noninteracting Green's functions, we do not perform the Matsubara summation here. Instead, as a first approximation, we evaluate this self energy on-shell, such that we have energy conservation at both vertices:
+	\begin{equation}
+		\mathcal E_{\bm q} = \mathcal E_{\bm q'} + \epsilon_{\bm q - \bm q'-\bm k} + \epsilon_{\bm k}.
+	\end{equation}
+	We thus have that $\mathcal E_{\bm q'}<\mathcal E_{\bm q}$. Since the plasmon dispersion is very steep compared to the magnon dispersion, $|\bm q|$ itself is very small. Therefore, the summation over $|\bm q'|$ only runs over a small part of the total phase space $q'$ [cf. the summation in \cref{eq:sigma-quadratic}], significantly suppressing the strength of this self energy. In addition, this self energy is quartic in the electric field, which will suppress its strength further. We therefore conclude that the magneto-optic interaction is too weak to give any meaningful correction to the plasmon self-energy.
 	
 	
 	\begin{figure}
