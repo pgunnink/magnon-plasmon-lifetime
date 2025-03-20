@@ -40,11 +40,3 @@ vertexbare(k, p) = p.g .* [
 
 
 ##
-
-function export_params_Cuprate(p=ParamsCuprate())
-    processing_dict = Dict(
-        :J => x -> generate_latex_command("Jexchangecupr", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
-        :K => x -> generate_latex_command("Kanicupr", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
-        :bareg => x -> generate_latex_command("gpolarizationcuprate", "\\num{$(@sprintf "%.0e" x / Unitful.q |> upreferred)}"))
-    export_params(p, processing_dict)
-end

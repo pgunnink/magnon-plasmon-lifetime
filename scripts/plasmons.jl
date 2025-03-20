@@ -52,17 +52,3 @@ Efield(q::Unitful.AbstractQuantity, ω, p) = sqrt(
     ħ * ω / (2p.a^2 * ϵ0 * Nq(q, ω, p))
 );
 Efield(q::AbstractVector, ω, p) = Efield(sqrt(q[1]^2 + q[2]^2), ω, p) .* Efieldqdependency(q, p)
-
-
-
-
-
-function export_params_plasmons(p=ParamsPlasmons())
-    processing_dict = Dict(
-        :Ef => x -> generate_latex_command("Efermi", "\\SI{$(x |> u"meV" |> ustrip)}{meV}"),
-        :ϵ => x -> generate_latex_command("epsilonplasmon", "\\num{$x}"),
-        :γ => x -> generate_latex_command("gammaplasmon", "\\num{$(convert_e_to_num_latex(x))}"),
-    )
-    export_params(p, processing_dict)
-end
-
