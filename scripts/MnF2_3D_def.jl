@@ -1,5 +1,6 @@
 using Unitful
 using Printf
+include("export_latex_functions.jl")
 # He = 520kOe\
 # 1 Oe = 0.0001T
 HE = 520e3 * 0.0001u"T"
@@ -13,7 +14,7 @@ Base.@kwdef mutable struct ParamsMnF
     a = 5u"Å"
     c = 3u"Å"
     # g = 8 * 0.1^3 * Unitful.q * cos(deg2rad(128 / 2))
-    bareg = 1e-2Unitful.q
+    bareg = 4e-3Unitful.q
     g = bareg * cos(deg2rad(119 / 2))
     Nz = 1
     α = 5e-2
@@ -36,11 +37,17 @@ Ek_MnF(k, p) = sqrt(A_MnF(k, p)^2 - B_MnF(k, p)^2) * [1, 1] .+ δA_MnF(k, p) .* 
 
 # 100 orientation
 vertexbare(k, p) = p.g .* [
-    -2im * p.a * sin(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
-    -0.45im * p.a * cos(0.5k[1] * p.a) * cos(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
-    -0.45im * p.a * cos(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * cos(0.5k[3] * p.a)
+    -7.63im * p.a * sin(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
+    -1.63im * p.a * cos(0.5k[1] * p.a) * cos(0.5k[2] * p.a) * sin(0.5k[3] * p.a),
+    -1.63im * p.a * cos(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * cos(0.5k[3] * p.a)
 ]
 
+# # altermagnetic orientation
+# vertexbare(k, p) = p.g .* [
+#     -1.63im * cos(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * cos(0.5k[3] * p.a),
+#     -1.63im * sin(0.5k[1] * p.a) * cos(0.5k[2] * p.a) * cos(0.5k[3] * p.a),
+#     -7.63im * sin(0.5k[1] * p.a) * sin(0.5k[2] * p.a) * sin(0.5k[3] * p.a)
+# ]
 
 
 πq(k, q, p) = [vertexbare(k .- q, p) .* v_MnF(k, p) * v_MnF(k .+ q, p), vertexbare(q .- k, p) .* u_MnF(k, p) * u_MnF(k .+ q, p)]
@@ -51,3 +58,13 @@ vertexbare(k, p) = p.g .* [
 πk_independent(k, p) = [vertexbare(k, p) .* v_MnF(k, p) * v_MnF(k, p), vertexbare(.-k, p) .* u_MnF(k, p) * u_MnF(k, p)]
 
 Γ_MnF(q, E, p, pp) = Γ_adaptive(q, E, k -> Ek_MnF(k, p), (k, q) -> 1, pp, (k, q) -> πq(k, q, p), p.a, N=2, maxevals=Int(1e4), η=0.0001u"meV")
+
+function export_params_MnF(p=ParamsMnF())
+    processing_dict = Dict(
+        :J => x -> generate_latex_command("Jexchange", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
+        :K => x -> generate_latex_command("Kani", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
+        :bareg => x -> generate_latex_command("gpolarizationrutile", "\\num{$(@sprintf "%.0e" x / Unitful.q |> upreferred)}"),
+        # :g => x -> generate_latex_command("gpolarizationrutile", "\\num{$( x / Unitful.q |> upreferred |> convert_e_to_num_latex)}"),
+    )
+    export_params(p, processing_dict)
+end

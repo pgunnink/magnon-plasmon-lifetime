@@ -1,5 +1,3 @@
-using DrWatson
-@quickactivate
 using PyPlot
 using Unitful
 using Revise
