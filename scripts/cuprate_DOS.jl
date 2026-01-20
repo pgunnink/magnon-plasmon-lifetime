@@ -125,5 +125,4 @@ axs[1, 2].axis("off")
 fig.subplots_adjust(wspace=0.05, hspace=0.05)
 wsave(joinpath(save_dir, "dispersion_cuprate.pdf"), fig)
 fig |> display
-##
 
