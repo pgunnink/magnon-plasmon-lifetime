@@ -6,7 +6,7 @@ Base.@kwdef mutable struct ParamsCuprate
     J = 1u"meV"
     K = 0.01u"meV"
     a = 2.5u"Å"
-    bareg = 1e-2Unitful.q
+    bareg = 4e-3Unitful.q
     g = bareg * a * cos(deg2rad(90 / 2))
     # g = 8 * 0.1^3 * Unitful.q * a
     # g = 4.4e-4u"meV / (kV / cm)"
@@ -26,7 +26,7 @@ Ek_cupr(k, p) = sqrt(A_cupr(k, p)^2 - B_cupr(k, p)^2)
 ωk_cupr(k, p) = Ek_cupr(k, p) / ħ
 
 
-vertexbare(k, p) = p.g .* [
+vertexbare(k, p) = 2p.g .* [
     sin(k[2] * p.a), sin(k[1] * p.a), 0
 ]
 
@@ -40,3 +40,11 @@ vertexbare(k, p) = p.g .* [
 
 
 ##
+
+function export_params_Cuprate(p=ParamsCuprate())
+    processing_dict = Dict(
+        :J => x -> generate_latex_command("Jexchangecupr", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
+        :K => x -> generate_latex_command("Kanicupr", "\\SI{$(round(x |> u"meV" |> ustrip; digits=2))}{meV}"),
+        :bareg => x -> generate_latex_command("gpolarizationcuprate", "\\num{$(@sprintf "%.0e" x / Unitful.q |> upreferred)}"))
+    export_params(p, processing_dict)
+end
